@@ -1,10 +1,10 @@
-package ru.netology.Test;
+package ru.netology.test;
 
 import org.junit.jupiter.api.Test;
-import ru.netology.Data.DataHelper;
-import ru.netology.Page.DashboardPage;
-import ru.netology.Page.LoginPage;
-import ru.netology.Page.TransferPage;
+import ru.netology.data.DataHelper;
+import ru.netology.page.DashboardPage;
+import ru.netology.page.LoginPage;
+import ru.netology.page.TransferPage;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,8 +23,8 @@ public class TransferTest {
         int startBalanceCard1 = dashboardPage.getFirstCardBalance();
         int startBalanceCard2 = dashboardPage.getSecondCardBalance();
         var transferPage = dashboardPage.chooseCard1();
-        String secondNumberCard = String.valueOf(DataHelper.getSecondNumber());
-        TransferPage.transferMoneyToFirstCard(transferAmount, String.valueOf(secondNumberCard));
+        var secondNumberCard = DataHelper.getSecondNumber();
+        TransferPage.makeTransfer(transferAmount,secondNumberCard);
 
         var dashBoardPageAfterTransfer = new DashboardPage();
         int balanceCard1AfterTransfer = dashBoardPageAfterTransfer.getFirstCardBalance();
@@ -48,8 +48,8 @@ public class TransferTest {
         int startBalanceCard1 = dashboardPage.getFirstCardBalance();
         int startBalanceCard2 = dashboardPage.getSecondCardBalance();
         var transferPage = dashboardPage.chooseCard2();
-        String firstNumberCard = String.valueOf(DataHelper.getFirstNumber());
-        TransferPage.transferMoneyToSecondCard(transferAmount, String.valueOf(firstNumberCard));
+        var firstNumberCard = DataHelper.getFirstNumber();
+        TransferPage.makeTransfer(transferAmount,firstNumberCard);
 
         var dashBoardPageAfterTransfer = new DashboardPage();
         int balanceCard1AfterTransfer = dashBoardPageAfterTransfer.getFirstCardBalance();

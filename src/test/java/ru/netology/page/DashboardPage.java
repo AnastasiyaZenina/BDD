@@ -1,8 +1,7 @@
-package ru.netology.Page;
+package ru.netology.page;
 
 
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
 import lombok.val;
 
 import static com.codeborne.selenide.Selenide.*;
